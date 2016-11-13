@@ -3,22 +3,21 @@ class Item
 
 	def initialize(options={})
 		@price  = options[:price]
-		@weight = options[:weight]
+		# @weight = options[:weight] - перенесено в класс RealItem
 		@name   = options[:name]
 	end
 
 	# attr_accessor :price, :weight
 
-	attr_reader :price, :weight, :name
+	attr_reader :price, :name
 	attr_writer :price
 
 	def info
 		# [price, weight, name]
 		# "#{price}, #{weight}, #{name}"
-		yield(@price) # вызывает блок и передает в него переменную @price
-		yield(@weight)
-		yield(@name)
-
+		yield(price) # вызывает блок и передает в него переменную @price
+		# yield(@weight) - перенесено в класс RealItem
+		yield(name)
 	end
 
 
