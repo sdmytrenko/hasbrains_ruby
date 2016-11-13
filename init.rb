@@ -34,7 +34,17 @@ require_relative "real_item"
 # p item2.respond_to?(:weight) # true
 
 #*****Les22
-item1 = VirtualItem.new({:price => 1000, :weight => 1000, :name => "Car"})
+# item1 = VirtualItem.new({:price => 2100, :weight => 1000, :name => "Car"})
+# item2 = RealItem.new({:weight => 100, :name => "Bicycle"})
+
+# cart = Cart.new
+# cart.add_item item1
+# cart.add_item item2
+
+# puts Item.discount
+
+# ******Less23
+item1 = VirtualItem.new({:price => 10, :weight => 1000, :name => "xXx"})
 item2 = RealItem.new({:weight => 100, :name => "Bicycle"})
 
 cart = Cart.new
@@ -43,3 +53,4 @@ cart.add_item item2
 
 puts Item.discount
 puts item1.price
+puts item1.real_price
