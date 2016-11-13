@@ -12,5 +12,18 @@ require_relative "item"
 # cart.remove_item
 # p cart.items
 
-item = Item.new({:price => 2100, :weight => 1000, :name => "Car"})
-item.info {|attr| print attr, ", " }
+# ******Les19
+# item = Item.new({:price => 2100, :weight => 1000, :name => "Car"})
+# item.info {|attr| print attr, ", " }
+
+#******les20
+item1 = Item.new({:price => 2100, :weight => 1000, :name => "Car"})
+item2 = Item.new({:weight => 100, :name => "Bicycle"})
+
+cart = Cart.new
+cart.add_item item1
+cart.add_item item2
+
+p cart.items
+cart.delete_invalid_items
+p cart.items
