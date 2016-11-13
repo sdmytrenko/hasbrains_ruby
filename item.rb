@@ -1,13 +1,22 @@
 class Item
 	# товары
 
+	@@discount = 0.1 # добавление стандартной скидки на основе переменной класса
+
+	def self.discount
+		# метод класса Скидка, размер которой зависит только от месяца в году (Ноябрь -30%)
+		if Time.now.month == 11
+			return @@discount = 0.3
+		else
+			return @@discount
+		end
+	end
+
 	def initialize(options={})
 		@price  = options[:price]
 		# @weight = options[:weight] - перенесено в класс RealItem
 		@name   = options[:name]
 	end
-
-	# attr_accessor :price, :weight
 
 	attr_reader :price, :name
 	attr_writer :price
@@ -20,32 +29,7 @@ class Item
 		yield(name)
 	end
 
-
-
-	# def price=(price_value)
-	# 	@price = price_value
-	# end
-
-	# def price
-	# 	@price
-	# end
-
-	# def weight=(weight_value)
-	# 	@weight = weight_value
-	# end
-
-	# def weight
-	# 	@weight
-	# end
+	def price
+		@price - @price*self.class.discount # на случай, если дочерние классы будут иметь свои скидки
+	end
 end
-
-
-# item1 = Item.new({:weight => 10, :price => 30})
-# puts item1.price
-# puts item1.weight
-# item1.price=(200)
-# puts item1.price
-# puts item1.weight
-
-# item2 = Item.new
-# puts item2.price
