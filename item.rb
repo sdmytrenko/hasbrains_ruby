@@ -41,12 +41,12 @@ class Item
 end
 
 
-item1 = Item.new({:weight => 10, :price => 30})
-puts item1.price
-puts item1.weight
-item1.price=(200)
-puts item1.price
-puts item1.weight
+# item1 = Item.new({:weight => 10, :price => 30})
+# puts item1.price
+# puts item1.weight
+# item1.price=(200)
+# puts item1.price
+# puts item1.weight
 
-item2 = Item.new
-puts item2.price
+# item2 = Item.new
+# puts item2.price
